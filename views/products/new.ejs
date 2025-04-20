@@ -1,0 +1,28 @@
+<% layout('layouts/boilerplate') -%>
+
+<div>
+  <form novalidate class="needs-validation" action="/products" method="post" class="w-50 mx-auto">
+    <div class="mb-3">
+      <label for="title" class="form-label">Product Title</label>
+      <input required name="title" type="text" class="form-control" id="title" placeholder="">
+    </div>
+
+    <div class="mb-3">
+      <label for="price" class="form-label">Price</label>
+      <input required name="price" type="number" class="form-control" id="price" placeholder="">
+    </div>
+
+    <div class="mb-3">
+      <label for="img-url" class="form-label">Image URL</label>
+      <input required name="image" type="text" class="form-control" id="img-url" placeholder="">
+    </div>
+
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <textarea required name="description" class="form-control" id="description" rows="3"></textarea>
+    </div>
+  
+    <button class="btn btn-sm btn-primary">Add Product</button>
+  </form>
+</div>
+

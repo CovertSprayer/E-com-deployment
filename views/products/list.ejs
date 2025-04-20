@@ -1,0 +1,35 @@
+<% layout('layouts/boilerplate') -%>
+
+  <div>
+    <% if (success && success.length > 0) { %>
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <%= success %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    <% } %>
+  
+    <div class="d-flex flex-wrap justify-content-center gap-3">
+      <% for( let product of products ) { %>
+        <div class="card" style="width: 18rem;">
+          <img src="<%= product.image %>" height="200px" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">
+              <span><%= product.title %></span>
+              <span>
+                <% if (user?.wishList?.includes(product._id)) { %>
+                  <i productId="<%= product._id %>" class="fa-solid fa-heart"></i>
+                <% } else { %>
+                  <i productId="<%= product._id %>" class="fa-regular fa-heart"></i>
+                <% } %>
+              </span>
+            </h5>
+            <p>₹ <%= product.price %></p>
+            <p class="card-text"><%= product.description %></p>
+            <a href="/products/<%= product._id %>" class="btn btn-sm btn-primary">Buy Now</a>
+          </div>
+        </div>
+      <% } %>
+    </div>
+  </div>
+
+  <script src="/js/wishlist.js"></script>

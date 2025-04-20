@@ -1,0 +1,27 @@
+<%- layout('/layouts/boilerplate') -%>
+    
+<div>
+  <form action="/products/<%= product._id %>?_method=PUT" method="post" class="w-50 mx-auto">
+    <div class="mb-3">
+      <label for="title" class="form-label">Product Title</label>
+      <input name="title" type="text" class="form-control" id="title" value="<%= product.title %>" placeholder="">
+    </div>
+
+    <div class="mb-3">
+      <label for="price" class="form-label">Price</label>
+      <input name="price" type="number" class="form-control" id="price" value="<%= product.price %>" placeholder="">
+    </div>
+
+    <div class="mb-3">
+      <label for="img-url" class="form-label">Image URL</label>
+      <input name="image" type="text" class="form-control" id="img-url" value="<%= product.image %>" placeholder="">
+    </div>
+
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <textarea name="description" class="form-control" id="description" rows="3"><%= product.description %></textarea>
+    </div>
+  
+    <button class="btn btn-sm btn-primary">Save Product</button>
+  </form>
+</div>
